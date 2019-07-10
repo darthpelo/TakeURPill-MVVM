@@ -1,0 +1,12 @@
+/* 
+  Localizations.strings
+  TakeUrPill
+
+  Created by Alessio Roberto on 09/07/2019.
+  Copyright © 2019 Alessio Roberto. All rights reserved.
+*/
+
+"home.title" = "Take Your Pill";
+"home.setpill.button.title" = "Pill Name and Amount";
+"home.tookpill.button.title" = "Took my Pill";
+"home.history.button.title" = "History";
