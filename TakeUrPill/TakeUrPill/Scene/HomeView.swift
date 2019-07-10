@@ -21,11 +21,9 @@ struct ButtonsView: View {
     var body: some View {
         VStack(alignment: .center,
                spacing: 60, content: {
-                Button(action: {
-                    print("setting")
-                }) {
-                    Text("")
-                }.background(Image("setting"))
+                NavigationLink(destination: AddPillView()) {
+                    Text("Add new Pill")
+                }
                 Button(action: {
                     print("tookpill")
                 }) {
@@ -42,7 +40,7 @@ struct ButtonsView: View {
 
 
 #if DEBUG
-struct ContentView_Previews : PreviewProvider {
+struct HomeView_Previews : PreviewProvider {
     static var previews: some View {
         HomeView()
     }

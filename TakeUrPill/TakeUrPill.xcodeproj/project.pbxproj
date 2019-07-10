@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D96BA72C22D68A8400A15569 /* AddPillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96BA72B22D68A8400A15569 /* AddPillView.swift */; };
+		D96BA72F22D68E2F00A15569 /* UserDefaults+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96BA72E22D68E2F00A15569 /* UserDefaults+Utils.swift */; };
 		D971977C22D52F5000F8AE03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D971977B22D52F5000F8AE03 /* AppDelegate.swift */; };
 		D971977E22D52F5000F8AE03 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D971977D22D52F5000F8AE03 /* SceneDelegate.swift */; };
 		D971978022D52F5000F8AE03 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D971977F22D52F5000F8AE03 /* HomeView.swift */; };
@@ -36,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D96BA72B22D68A8400A15569 /* AddPillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPillView.swift; sourceTree = "<group>"; };
+		D96BA72E22D68E2F00A15569 /* UserDefaults+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Utils.swift"; sourceTree = "<group>"; };
 		D971977822D52F5000F8AE03 /* TakeUrPill.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TakeUrPill.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D971977B22D52F5000F8AE03 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D971977D22D52F5000F8AE03 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +82,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D96BA72D22D68E0F00A15569 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				D971977F22D52F5000F8AE03 /* HomeView.swift */,
+				D96BA72B22D68A8400A15569 /* AddPillView.swift */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		D96BA73022D68E3700A15569 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				D96BA72E22D68E2F00A15569 /* UserDefaults+Utils.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		D971976F22D52F5000F8AE03 = {
 			isa = PBXGroup;
 			children = (
@@ -101,14 +122,15 @@
 		D971977A22D52F5000F8AE03 /* TakeUrPill */ = {
 			isa = PBXGroup;
 			children = (
+				D971978922D52F5200F8AE03 /* Info.plist */,
 				D971977B22D52F5000F8AE03 /* AppDelegate.swift */,
 				D971977D22D52F5000F8AE03 /* SceneDelegate.swift */,
-				D971977F22D52F5000F8AE03 /* HomeView.swift */,
 				D971978122D52F5200F8AE03 /* Assets.xcassets */,
+				D96BA73022D68E3700A15569 /* Extension */,
 				D971978622D52F5200F8AE03 /* LaunchScreen.storyboard */,
-				D971978922D52F5200F8AE03 /* Info.plist */,
-				D971978322D52F5200F8AE03 /* Preview Content */,
 				D97197AF22D5305500F8AE03 /* Localizable.strings */,
+				D971978322D52F5200F8AE03 /* Preview Content */,
+				D96BA72D22D68E0F00A15569 /* Scene */,
 			);
 			path = TakeUrPill;
 			sourceTree = "<group>";
@@ -272,8 +294,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D971977C22D52F5000F8AE03 /* AppDelegate.swift in Sources */,
+				D96BA72C22D68A8400A15569 /* AddPillView.swift in Sources */,
 				D971977E22D52F5000F8AE03 /* SceneDelegate.swift in Sources */,
 				D971978022D52F5000F8AE03 /* HomeView.swift in Sources */,
+				D96BA72F22D68E2F00A15569 /* UserDefaults+Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
