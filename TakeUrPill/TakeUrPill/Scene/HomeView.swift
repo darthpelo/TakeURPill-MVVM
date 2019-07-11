@@ -12,7 +12,8 @@ struct HomeView : View {
     var body: some View {
         NavigationView {
             ButtonsView()
-                .navigationBarTitle(Text(NSLocalizedString("home.title", comment: "")))
+                .navigationBarTitle(Text(NSLocalizedString("home.title", comment: "")),
+                                    displayMode: .inline)
         }
     }
 }
