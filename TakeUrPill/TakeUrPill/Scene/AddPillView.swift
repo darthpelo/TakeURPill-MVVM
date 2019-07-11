@@ -10,9 +10,6 @@ import Combine
 import SwiftUI
 
 struct AddPillView: View {
-    private var list: [PillType] = [PillType(id: UUID(),
-                                             amount: 1,
-                                             name: "Aspirina")]
     @ObjectBinding var manager = AddPillManager()
     
     @State private var pillName: String = ""
@@ -25,7 +22,7 @@ struct AddPillView: View {
         NavigationView {
             VStack {
                 Section {
-                    TextField("Pill", text: $pillName)
+                    TextField("Pill name", text: $pillName)
                         .padding(20)
                     Picker(selection: $selectedpillAmount,
                            label: Text("Please choose an amount")
@@ -56,6 +53,10 @@ struct AddPillView: View {
             .navigationBarTitle(Text("Add pill"), displayMode: .inline)
         }
     }
+    
+    func delete(at offsets: IndexSet) {
+        manager.deletePill(at: offsets)
+    }
 }
 
 struct PillTypetRow: View {
@@ -63,22 +64,13 @@ struct PillTypetRow: View {
     var amount: Int
     
     var body: some View {
-        Text("Pill: \(name) - Quantity: \(amount)")
+        Group {
+            Text("Pill: \(name) - ").bold()
+            Text("Quantity: \(amount)").italic().color(Color.blue)
+        }
     }
 }
 
-class AddPillManager: BindableObject {
-    var didChange = PassthroughSubject<Void, Never>()
-    var list: [PillType] = []
-    
-    func savePill(name: String, amount: Int) -> Bool {
-        let storage = Storage()
-        let pill = PillType(amount: amount, name: name)
-        list.append(pill)
-        didChange.send()
-        return !storage.store(pill)
-    }
-}
 
 #if DEBUG
 struct AddPillView_Previews : PreviewProvider {
