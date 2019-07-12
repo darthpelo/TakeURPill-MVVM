@@ -12,22 +12,16 @@ import SwiftUI
 protocol DataPersistance {
     func savePill(name: String, amount: Int) -> Bool
     func deletePill(at offsets: IndexSet)
-    func loadPills() -> [PillType]
+    func loadPills()
 }
 
 final class AddPillManager: DataPersistance, BindableObject {
-    func loadPills() -> [PillType] {
-        do {
-            let data = try Storage().readTypes()
-            let decoder = JSONDecoder()
-            list = try decoder.decode([PillType].self, from: data)
-        } catch {}
-
-        return list.sorted { $0.name > $1.name }
-    }
-
     var didChange = PassthroughSubject<Void, Never>()
     var list: [PillType] = []
+
+    init() {
+        loadPills()
+    }
     
     func savePill(name: String, amount: Int) -> Bool {
         let storage = Storage()
@@ -42,6 +36,15 @@ final class AddPillManager: DataPersistance, BindableObject {
             list.remove(at: first)
             didChange.send()
         }
+    }
+
+    func loadPills() {
+        do {
+            let data = try Storage().readTypes()
+            let decoder = JSONDecoder()
+            list = try decoder.decode([PillType].self, from: data)
+            didChange.send()
+        } catch {}
     }
 }
 

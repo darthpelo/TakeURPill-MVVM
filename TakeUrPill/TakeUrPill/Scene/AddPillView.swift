@@ -10,48 +10,45 @@ import Combine
 import SwiftUI
 
 struct AddPillView: View {
-    private var manager = AddPillManager()
-    
+    var manager: AddPillManager
+    var pillAmount = ["Don't know", "1", "2", "3", "4", "5"]
+
     @State private var pillName: String = ""
     @State private var selectedpillAmount = 0
     @State private var showingAlert = false
     
-    var pillAmount = ["Don't know", "1", "2", "3", "4", "5"]
-    
     var body: some View {
-        NavigationView {
-            VStack {
-                Section {
-                    TextField("Pill name", text: $pillName)
-                        .padding(8)
+        VStack {
+            Section {
+                TextField("Pill name", text: $pillName)
+                    .padding(8)
                     .border(Color.gray, cornerRadius: 10)
-                    Picker(selection: $selectedpillAmount,
-                           label: Text("Please choose an amount")
-                            .font(.subheadline)) {
-                                ForEach(0 ..< pillAmount.count) {
-                                    Text(self.pillAmount[$0]).tag($0)
-                                }
-                    }
+                Picker(selection: $selectedpillAmount,
+                       label: Text("Please choose an amount")
+                        .font(.subheadline)) {
+                            ForEach(0 ..< pillAmount.count) {
+                                Text(self.pillAmount[$0]).tag($0)
+                            }
                 }
-                .padding(8)
-                Section {
-                    Button("Add") {
-                        _ = self.manager.savePill(name: self.pillName,
-                                                  amount: self.selectedpillAmount)
-                    }
-                    .padding(10)
-                        .border(Color.blue, cornerRadius: 20)
-                        .font(.body)
-                        .foregroundColor(.blue)
-
-                }
-                Section {
-                    PillListView(manager: manager)
-                }
-                .padding(8)
             }
-            .navigationBarTitle(Text("Add pill"), displayMode: .inline)
+            .padding(8)
+            Section {
+                Button("Add") {
+                    _ = self.manager.savePill(name: self.pillName,
+                                              amount: self.selectedpillAmount)
+                }
+                .padding(10)
+                    .border(Color.blue, cornerRadius: 20)
+                    .font(.body)
+                    .foregroundColor(.blue)
+
+            }
+            Section {
+                PillListView(manager: manager)
+            }
+            .padding(8)
         }
+        .navigationBarTitle(Text("Add pill"), displayMode: .inline)
     }
     
     func delete(at offsets: IndexSet) {
@@ -73,6 +70,10 @@ struct PillListView: View {
         .padding(10)
             .border(Color.blue, width: 1, cornerRadius: 16)
     }
+
+    private func loadStuff() {
+
+    }
 }
 struct PillTypetRow: View {
     var name: String
@@ -90,7 +91,7 @@ struct PillTypetRow: View {
 #if DEBUG
 struct AddPillView_Previews : PreviewProvider {
     static var previews: some View {
-        AddPillView()
+        AddPillView(manager: AddPillManager())
     }
 }
 #endif

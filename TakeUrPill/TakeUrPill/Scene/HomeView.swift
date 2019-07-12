@@ -13,7 +13,7 @@ struct HomeView : View {
         NavigationView {
             ButtonsView()
                 .navigationBarTitle(Text(NSLocalizedString("home.title", comment: "")),
-                                    displayMode: .inline)
+                                    displayMode: .large)
         }
     }
 }
@@ -22,7 +22,7 @@ struct ButtonsView: View {
     var body: some View {
         VStack(alignment: .center,
                spacing: 60, content: {
-                NavigationLink(destination: AddPillView()) {
+                NavigationLink(destination: AddPillView(manager: AddPillManager())) {
                     Text("Add new Pill")
                 }
                 Button(action: {
