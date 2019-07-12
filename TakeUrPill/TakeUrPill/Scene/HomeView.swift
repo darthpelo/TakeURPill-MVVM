@@ -12,7 +12,8 @@ struct HomeView : View {
     var body: some View {
         NavigationView {
             ButtonsView()
-                .navigationBarTitle(Text(NSLocalizedString("home.title", comment: "")))
+                .navigationBarTitle(Text(NSLocalizedString("home.title", comment: "")),
+                                    displayMode: .large)
         }
     }
 }
@@ -20,20 +21,44 @@ struct HomeView : View {
 struct ButtonsView: View {
     var body: some View {
         VStack(alignment: .center,
-               spacing: 60, content: {
-                NavigationLink(destination: AddPillView()) {
-                    Text("Add new Pill")
+               spacing: 8, content: {
+                NavigationLink(destination: AddPillView(manager: AddPillManager())) {
+                    HStack(spacing: 10, content: {
+                        Image(systemName: "plus.circle.fill")
+                            .font(.title)
+                        Text(NSLocalizedString("home.setpill.button.title",
+                                               comment: ""))
+                            .fontWeight(.bold)
+                    })
+                    .padding(22)
+                        .border(Color.blue, cornerRadius: 12)
                 }
                 Button(action: {
                     print("tookpill")
                 }) {
-                    Text("")
-                }.background(Image("tookpill"))
+                    HStack(spacing: 10, content:  {
+                        Image(systemName: "heart.circle.fill")
+                            .font(.title)
+                        Text(NSLocalizedString("home.tookpill.button.title",
+                                               comment: ""))
+                            .fontWeight(.bold)
+                    })
+                    .padding(22)
+                        .border(Color.blue, cornerRadius: 12)
+                }
                 Button(action: {
                     print("setting")
                 }) {
-                    Text("")
-                }.background(Image("history"))
+                    HStack(spacing: 10, content:  {
+                        Image(systemName: "list.dash")
+                            .font(.title)
+                        Text(NSLocalizedString("home.history.button.title",
+                                               comment: ""))
+                            .fontWeight(.bold)
+                    })
+                    .padding(22)
+                        .border(Color.blue, cornerRadius: 12)
+                }
         })
     }
 }

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C73EAB922D7330400814F0E /* PillType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C73EAB822D7330400814F0E /* PillType.swift */; };
+		4C73EABB22D7410100814F0E /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C73EABA22D7410100814F0E /* StorageService.swift */; };
+		D94BED1622D7DC1B00B4D8B1 /* AddPillManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94BED1522D7DC1B00B4D8B1 /* AddPillManager.swift */; };
 		D96BA72C22D68A8400A15569 /* AddPillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96BA72B22D68A8400A15569 /* AddPillView.swift */; };
 		D96BA72F22D68E2F00A15569 /* UserDefaults+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96BA72E22D68E2F00A15569 /* UserDefaults+Utils.swift */; };
 		D971977C22D52F5000F8AE03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D971977B22D52F5000F8AE03 /* AppDelegate.swift */; };
@@ -38,6 +41,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4C73EAB822D7330400814F0E /* PillType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillType.swift; sourceTree = "<group>"; };
+		4C73EABA22D7410100814F0E /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
+		D94BED1522D7DC1B00B4D8B1 /* AddPillManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPillManager.swift; sourceTree = "<group>"; };
 		D96BA72B22D68A8400A15569 /* AddPillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPillView.swift; sourceTree = "<group>"; };
 		D96BA72E22D68E2F00A15569 /* UserDefaults+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Utils.swift"; sourceTree = "<group>"; };
 		D971977822D52F5000F8AE03 /* TakeUrPill.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TakeUrPill.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,6 +88,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C73EAB722D732EC00814F0E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4C73EAB822D7330400814F0E /* PillType.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		D96BA72D22D68E0F00A15569 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
@@ -123,12 +137,15 @@
 			isa = PBXGroup;
 			children = (
 				D971978922D52F5200F8AE03 /* Info.plist */,
+				D94BED1522D7DC1B00B4D8B1 /* AddPillManager.swift */,
 				D971977B22D52F5000F8AE03 /* AppDelegate.swift */,
 				D971977D22D52F5000F8AE03 /* SceneDelegate.swift */,
+				4C73EABA22D7410100814F0E /* StorageService.swift */,
 				D971978122D52F5200F8AE03 /* Assets.xcassets */,
 				D96BA73022D68E3700A15569 /* Extension */,
 				D971978622D52F5200F8AE03 /* LaunchScreen.storyboard */,
 				D97197AF22D5305500F8AE03 /* Localizable.strings */,
+				4C73EAB722D732EC00814F0E /* Model */,
 				D971978322D52F5200F8AE03 /* Preview Content */,
 				D96BA72D22D68E0F00A15569 /* Scene */,
 			);
@@ -295,9 +312,12 @@
 			files = (
 				D971977C22D52F5000F8AE03 /* AppDelegate.swift in Sources */,
 				D96BA72C22D68A8400A15569 /* AddPillView.swift in Sources */,
+				4C73EAB922D7330400814F0E /* PillType.swift in Sources */,
 				D971977E22D52F5000F8AE03 /* SceneDelegate.swift in Sources */,
+				D94BED1622D7DC1B00B4D8B1 /* AddPillManager.swift in Sources */,
 				D971978022D52F5000F8AE03 /* HomeView.swift in Sources */,
 				D96BA72F22D68E2F00A15569 /* UserDefaults+Utils.swift in Sources */,
+				4C73EABB22D7410100814F0E /* StorageService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
