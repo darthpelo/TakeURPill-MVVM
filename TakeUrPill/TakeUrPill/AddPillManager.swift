@@ -9,7 +9,23 @@
 import Combine
 import SwiftUI
 
-final class AddPillManager: BindableObject {
+protocol DataPersistance {
+    func savePill(name: String, amount: Int) -> Bool
+    func deletePill(at offsets: IndexSet)
+    func loadPills() -> [PillType]
+}
+
+final class AddPillManager: DataPersistance, BindableObject {
+    func loadPills() -> [PillType] {
+        do {
+            let data = try Storage().readTypes()
+            let decoder = JSONDecoder()
+            list = try decoder.decode([PillType].self, from: data)
+        } catch {}
+
+        return list.sorted { $0.name > $1.name }
+    }
+
     var didChange = PassthroughSubject<Void, Never>()
     var list: [PillType] = []
     
@@ -28,3 +44,4 @@ final class AddPillManager: BindableObject {
         }
     }
 }
+

@@ -136,18 +136,18 @@
 		D971977A22D52F5000F8AE03 /* TakeUrPill */ = {
 			isa = PBXGroup;
 			children = (
-				4C73EAB722D732EC00814F0E /* Model */,
 				D971978922D52F5200F8AE03 /* Info.plist */,
+				D94BED1522D7DC1B00B4D8B1 /* AddPillManager.swift */,
 				D971977B22D52F5000F8AE03 /* AppDelegate.swift */,
 				D971977D22D52F5000F8AE03 /* SceneDelegate.swift */,
+				4C73EABA22D7410100814F0E /* StorageService.swift */,
 				D971978122D52F5200F8AE03 /* Assets.xcassets */,
 				D96BA73022D68E3700A15569 /* Extension */,
 				D971978622D52F5200F8AE03 /* LaunchScreen.storyboard */,
 				D97197AF22D5305500F8AE03 /* Localizable.strings */,
+				4C73EAB722D732EC00814F0E /* Model */,
 				D971978322D52F5200F8AE03 /* Preview Content */,
 				D96BA72D22D68E0F00A15569 /* Scene */,
-				4C73EABA22D7410100814F0E /* StorageService.swift */,
-				D94BED1522D7DC1B00B4D8B1 /* AddPillManager.swift */,
 			);
 			path = TakeUrPill;
 			sourceTree = "<group>";

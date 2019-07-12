@@ -10,20 +10,21 @@ import Combine
 import SwiftUI
 
 struct AddPillView: View {
-    @ObjectBinding var manager = AddPillManager()
+    private var manager = AddPillManager()
     
     @State private var pillName: String = ""
     @State private var selectedpillAmount = 0
     @State private var showingAlert = false
     
-    var pillAmount = ["0", "1", "2", "3", "4", "5"]
+    var pillAmount = ["Don't know", "1", "2", "3", "4", "5"]
     
     var body: some View {
         NavigationView {
             VStack {
                 Section {
                     TextField("Pill name", text: $pillName)
-                        .padding(20)
+                        .padding(8)
+                    .border(Color.gray, cornerRadius: 10)
                     Picker(selection: $selectedpillAmount,
                            label: Text("Please choose an amount")
                             .font(.subheadline)) {
@@ -31,24 +32,23 @@ struct AddPillView: View {
                                     Text(self.pillAmount[$0]).tag($0)
                                 }
                     }
-                    .padding(20)
                 }
+                .padding(8)
                 Section {
-                    Button(action: {
+                    Button("Add") {
                         _ = self.manager.savePill(name: self.pillName,
                                                   amount: self.selectedpillAmount)
-                    }) {
-                        Text("Save")
-                            .font(.title)
                     }
+                    .padding(10)
+                        .border(Color.blue, cornerRadius: 20)
+                        .font(.body)
+                        .foregroundColor(.blue)
+
                 }
                 Section {
-                    Text("Pills saved")
-                        .font(.title)
-                    List(manager.list) { pill in
-                        PillTypetRow(name: pill.name, amount: pill.amount ?? 0)
-                    }
-                }.padding(10)
+                    PillListView(manager: manager)
+                }
+                .padding(8)
             }
             .navigationBarTitle(Text("Add pill"), displayMode: .inline)
         }
@@ -59,6 +59,21 @@ struct AddPillView: View {
     }
 }
 
+struct PillListView: View {
+    @ObjectBinding var manager: AddPillManager
+
+    var body: some View {
+        VStack {
+            Text("Pills added")
+                .font(.title)
+            List(manager.list) { pill in
+                PillTypetRow(name: pill.name, amount: pill.amount ?? 0)
+            }
+        }
+        .padding(10)
+            .border(Color.blue, width: 1, cornerRadius: 16)
+    }
+}
 struct PillTypetRow: View {
     var name: String
     var amount: Int
