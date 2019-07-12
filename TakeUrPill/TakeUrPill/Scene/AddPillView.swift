@@ -12,7 +12,7 @@ import SwiftUI
 struct AddPillView: View {
     var manager: AddPillManager
     var pillAmount = ["Don't know", "1", "2", "3", "4", "5"]
-
+    
     @State private var pillName: String = ""
     @State private var selectedpillAmount = 0
     @State private var showingAlert = false
@@ -33,15 +33,21 @@ struct AddPillView: View {
             }
             .padding(8)
             Section {
-                Button("Add") {
+                Button(action: {
                     _ = self.manager.savePill(name: self.pillName,
                                               amount: self.selectedpillAmount)
+                }) {
+                    HStack{
+                        Image(systemName: "plus.circle.fill")
+                        .font(.title)
+                        Text("Add").fontWeight(.light)
+                    }
                 }
                 .padding(10)
                     .border(Color.blue, cornerRadius: 20)
                     .font(.body)
                     .foregroundColor(.blue)
-
+                
             }
             Section {
                 PillListView(manager: manager)
@@ -58,7 +64,7 @@ struct AddPillView: View {
 
 struct PillListView: View {
     @ObjectBinding var manager: AddPillManager
-
+    
     var body: some View {
         VStack {
             Text("Pills added")
@@ -66,14 +72,12 @@ struct PillListView: View {
             List(manager.list) { pill in
                 PillTypetRow(name: pill.name, amount: pill.amount ?? 0)
             }
+            .deleteDisabled(false)
         }
         .padding(10)
             .border(Color.blue, width: 1, cornerRadius: 16)
     }
-
-    private func loadStuff() {
-
-    }
+    
 }
 struct PillTypetRow: View {
     var name: String

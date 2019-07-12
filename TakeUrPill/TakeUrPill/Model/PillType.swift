@@ -22,10 +22,3 @@ extension PillType: Equatable {
                 lhs.name == rhs.name
     }
 }
-
-#if DEBUG
-let testData: [PillType] = [PillType(amount: 1, name: "Aspirina"),
-                            PillType(amount: 1, name: "Paracetamol"),
-                            PillType(amount: 1, name: "Vitamin D"),
-                            PillType(amount: 1, name: "Red")]
-#endif
