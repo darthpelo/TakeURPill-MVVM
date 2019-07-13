@@ -23,41 +23,13 @@ struct ButtonsView: View {
         VStack(alignment: .center,
                spacing: 8, content: {
                 NavigationLink(destination: AddPillView(manager: AddPillManager())) {
-                    HStack(spacing: 10, content: {
-                        Image(systemName: "plus.circle.fill")
-                            .font(.title)
-                        Text(NSLocalizedString("home.setpill.button.title",
-                                               comment: ""))
-                            .fontWeight(.bold)
-                    })
-                    .padding(22)
-                        .border(Color.blue, cornerRadius: 12)
+                    FirstButton()
                 }
-                Button(action: {
-                    print("tookpill")
-                }) {
-                    HStack(spacing: 10, content:  {
-                        Image(systemName: "heart.circle.fill")
-                            .font(.title)
-                        Text(NSLocalizedString("home.tookpill.button.title",
-                                               comment: ""))
-                            .fontWeight(.bold)
-                    })
-                    .padding(22)
-                        .border(Color.blue, cornerRadius: 12)
+                NavigationLink(destination: AddPillView(manager: AddPillManager())) {
+                    SecondButton()
                 }
-                Button(action: {
-                    print("setting")
-                }) {
-                    HStack(spacing: 10, content:  {
-                        Image(systemName: "list.dash")
-                            .font(.title)
-                        Text(NSLocalizedString("home.history.button.title",
-                                               comment: ""))
-                            .fontWeight(.bold)
-                    })
-                    .padding(22)
-                        .border(Color.blue, cornerRadius: 12)
+                NavigationLink(destination: AddPillView(manager: AddPillManager())) {
+                    ThirdButton()
                 }
         })
     }
@@ -71,3 +43,66 @@ struct HomeView_Previews : PreviewProvider {
     }
 }
 #endif
+
+struct FirstButton : View {
+    var body: some View {
+        return HStack(spacing: 10, content: {
+            Image(systemName: "plus.circle.fill")
+                .font(.title)
+                .frame(width: 30
+                    , height: 30)
+            Text(NSLocalizedString("home.setpill.button.title",
+                                   comment: ""))
+                .fontWeight(.bold)
+                .lineLimit(nil)
+                .multilineTextAlignment(.center)
+                .frame(width: 100
+                    , height: 44)
+        })
+            .frame(width: 180
+                , height: 64)
+            .border(Color.blue, cornerRadius: 12)
+    }
+}
+
+struct SecondButton : View {
+    var body: some View {
+        return  HStack(spacing: 10, content:  {
+            Image(systemName: "heart.circle.fill")
+                .font(.title)
+                .frame(width: 30
+                    , height: 30)
+            Text(NSLocalizedString("home.tookpill.button.title",
+                                   comment: ""))
+                .fontWeight(.bold)
+                .lineLimit(nil)
+                .multilineTextAlignment(.center)
+                .frame(width: 100
+                    , height: 44)
+        })
+            .frame(width: 180
+                , height: 64)
+            .border(Color.blue, cornerRadius: 12)
+    }
+}
+
+struct ThirdButton : View {
+    var body: some View {
+        return HStack(spacing: 10, content:  {
+            Image(systemName: "list.dash")
+                .font(.title)
+                .frame(width: 30
+                    , height: 30)
+            Text(NSLocalizedString("home.history.button.title",
+                                   comment: ""))
+                .fontWeight(.bold)
+                .lineLimit(nil)
+                .multilineTextAlignment(.center)
+                .frame(width: 100
+                    , height: 44)
+        })
+            .frame(width: 180
+                , height: 64)
+            .border(Color.blue, cornerRadius: 12)
+    }
+}
