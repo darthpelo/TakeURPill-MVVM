@@ -26,7 +26,9 @@ private struct ButtonsView: View {
                 NavigationLink(destination: AddPillView(manager: AddPillManager())) {
                     FirstButton()
                 }
-                NavigationLink(destination: AddPillView(manager: AddPillManager())) {
+                Button(action: {
+                    print("test")
+                }) {
                     SecondButton()
                 }
                 NavigationLink(destination: AddPillView(manager: AddPillManager())) {
@@ -36,6 +38,9 @@ private struct ButtonsView: View {
     }
 }
 
+private func pillola() {
+    
+}
 
 #if DEBUG
 struct HomeView_Previews : PreviewProvider {
