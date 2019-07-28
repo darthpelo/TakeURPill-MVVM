@@ -10,7 +10,7 @@ import Foundation
 
 protocol StorageService {
     func readHistory() throws -> Data
-    func deleteHistory() -> Bool
+    func deleteHistory()
     func store(_ pill: PillType) -> Bool
 }
 
@@ -22,40 +22,29 @@ enum HistoryError: Error {
 }
 
 final class Storage: StorageService {
-    private let suitName = "group.com.alessioroberto.TakeURPill.Shared"
 
     func readHistory() throws -> Data {
-        if let userDefaults = UserDefaults(suiteName: suitName),
-            let history = userDefaults.userHistory {
+        if let history = UserDefaultsConfig.userHistory {
             return history
         }
 
         throw HistoryError.fileEmpty
     }
 
-    func deleteHistory() -> Bool {
-        if let userDefaults = UserDefaults(suiteName: suitName) {
-            userDefaults.userHistory = nil
-            return true
-        }
-        return false
+    func deleteHistory() {
+        UserDefaultsConfig.userHistory = nil
     }
 
     func readTypes() throws -> Data {
-        if let userDefaults = UserDefaults(suiteName: suitName),
-            let history = userDefaults.pillsList {
+        if let history = UserDefaultsConfig.pillsList {
             return history
         }
 
         throw HistoryError.fileEmpty
     }
 
-    func deleteTypes() -> Bool {
-        if let userDefaults = UserDefaults(suiteName: suitName) {
-            userDefaults.pillsList = nil
-            return true
-        }
-        return false
+    func deleteTypes() {
+        UserDefaultsConfig.pillsList = nil
     }
 
     func deleteType(at idx: Int) -> Bool {
@@ -66,7 +55,7 @@ final class Storage: StorageService {
                 var newList = list
                 newList.remove(at: idx)
                 if let newJson = Convert.convertToData(newList) {
-                    try saveTypes(newJson)
+                    saveTypes(newJson)
                 }
             }
         } catch {
@@ -85,13 +74,13 @@ final class Storage: StorageService {
                 var newList = list
                 newList.append(pill)
                 if let newJson = Convert.convertToData(newList) {
-                    try saveTypes(newJson)
+                    saveTypes(newJson)
                 }
             }
         } catch let error as HistoryError {
             if error == .fileEmpty {
                 if let newJson = Convert.convertToData([pill]) {
-                    try? saveTypes(newJson)
+                    saveTypes(newJson)
                 }
             } else {
 //                logger("\(error.localizedDescription)")
@@ -105,20 +94,12 @@ final class Storage: StorageService {
     }
 
     // MARK: - Private
-    private func saveHistory(_ data: Data) throws {
-        if let userDefaults = UserDefaults(suiteName: suitName) {
-            userDefaults.userHistory = data
-        } else {
-            throw HistoryError.write
-        }
+    private func saveHistory(_ data: Data) {
+        UserDefaultsConfig.userHistory = data
     }
 
-    private func saveTypes(_ data: Data) throws {
-        if let userDefaults = UserDefaults(suiteName: suitName) {
-            userDefaults.pillsList = data
-        } else {
-            throw HistoryError.write
-        }
+    private func saveTypes(_ data: Data) {
+        UserDefaultsConfig.pillsList = data
     }
 }
 
