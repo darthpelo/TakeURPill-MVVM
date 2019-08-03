@@ -15,8 +15,9 @@ protocol DataPersistance {
     func loadPills()
 }
 
-final class AddPillManager: DataPersistance, BindableObject {
-    var didChange = PassthroughSubject<Void, Never>()
+final class AddPillManager: DataPersistance, ObservableObject {
+
+    var objectWillChange = PassthroughSubject<Void, Never>()
     var list: [PillType] = []
 
     init() {
@@ -27,14 +28,14 @@ final class AddPillManager: DataPersistance, BindableObject {
         let storage = Storage()
         let pill = PillType(amount: amount, name: name)
         list.append(pill)
-        didChange.send()
+        objectWillChange.send()
         return !storage.store(pill)
     }
     
     func deletePill(at offsets: IndexSet) {
         if let first = offsets.first {
             list.remove(at: first)
-            didChange.send()
+            objectWillChange.send()
         }
     }
 
@@ -43,8 +44,10 @@ final class AddPillManager: DataPersistance, BindableObject {
             let data = try Storage().readTypes()
             let decoder = JSONDecoder()
             list = try decoder.decode([PillType].self, from: data)
-            didChange.send()
-        } catch {}
+            objectWillChange.send()
+        } catch {
+
+        }
     }
 }
 

@@ -63,16 +63,11 @@ struct AddPillView: View {
 }
 
 struct PillListView: View {
-    @ObjectBinding var manager: AddPillManager
+    @ObservedObject var manager: AddPillManager
     
     var body: some View {
-        VStack {
-            Text("Pills added")
-                .font(.title)
-            List(manager.list) { pill in
-                PillTypetRow(name: pill.name, amount: pill.amount ?? 0)
-            }
-            .deleteDisabled(false)
+        List(manager.list) { pill in
+            PillTypetRow(name: pill.name, amount: pill.amount ?? 0)
         }
         .padding(10)
         .overlay(strokedRoundedRectangle(cornerRadius: 16, lineWidth: 1, color: Color.blue))
