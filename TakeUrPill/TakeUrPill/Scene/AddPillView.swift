@@ -22,7 +22,7 @@ struct AddPillView: View {
             Section {
                 TextField("Pill name", text: $pillName)
                     .padding(8)
-                    .border(Color.gray, cornerRadius: 10)
+                    .overlay(strokedRoundedRectangle(cornerRadius: 10, color: Color.gray))
                 Picker(selection: $selectedpillAmount,
                        label: Text("Please choose an amount")
                         .font(.subheadline)) {
@@ -44,7 +44,7 @@ struct AddPillView: View {
                     }
                 }
                 .padding(10)
-                    .border(Color.blue, cornerRadius: 20)
+                    .overlay(strokedRoundedRectangle(cornerRadius: 20, color: Color.blue))
                     .font(.body)
                     .foregroundColor(.blue)
                 
@@ -75,18 +75,22 @@ struct PillListView: View {
             .deleteDisabled(false)
         }
         .padding(10)
-            .border(Color.blue, width: 1, cornerRadius: 16)
+        .overlay(strokedRoundedRectangle(cornerRadius: 16, lineWidth: 1, color: Color.blue))
     }
     
 }
+
 struct PillTypetRow: View {
     var name: String
     var amount: Int
     
     var body: some View {
         Group {
-            Text("Pill: \(name) - ").bold()
-            Text("Quantity: \(amount)").italic().color(Color.blue)
+            Text("Pill: \(name) - ")
+                .bold()
+            Text("Quantity: \(amount)")
+                .italic()
+                .foregroundColor(Color.blue)
         }
     }
 }
@@ -99,3 +103,14 @@ struct AddPillView_Previews : PreviewProvider {
     }
 }
 #endif
+
+extension View {
+    func strokedRoundedRectangle(
+            cornerRadius r: CGFloat,
+            lineWidth w: CGFloat = 1,
+            color c: Color = .primary
+        ) -> some View {
+
+        return RoundedRectangle(cornerRadius: r).stroke(lineWidth: w).foregroundColor(c)
+    }
+}
