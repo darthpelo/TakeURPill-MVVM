@@ -25,7 +25,7 @@ struct FirstButton : View {
         })
             .frame(width: 180
                 , height: 64)
-            .border(Color.blue, cornerRadius: 12)
+            .strokedRoundedRectangle(cornerRadius: 12, color: Color.blue)
     }
 }
 
@@ -46,7 +46,7 @@ struct SecondButton : View {
         })
             .frame(width: 180
                 , height: 64)
-            .border(Color.blue, cornerRadius: 12)
+            .strokedRoundedRectangle(cornerRadius: 12, color: Color.blue)
     }
 }
 
@@ -67,6 +67,6 @@ struct ThirdButton : View {
         })
             .frame(width: 180
                 , height: 64)
-            .border(Color.blue, cornerRadius: 12)
+            .strokedRoundedRectangle(cornerRadius: 12, color: Color.blue)
     }
 }

@@ -22,15 +22,19 @@ struct AddPillView: View {
             Section {
                 TextField("Pill name", text: $pillName)
                     .padding(8)
-                    .border(Color.gray, cornerRadius: 10)
+                    .overlay(strokedRoundedRectangle(cornerRadius: 10, color: Color.gray))
+                
                 Picker(selection: $selectedpillAmount,
                        label: Text("Please choose an amount")
-                        .font(.subheadline)) {
+                        .font(.subheadline)
+                        .foregroundColor(.blue)
+                ) {
                             ForEach(0 ..< pillAmount.count) {
                                 Text(self.pillAmount[$0]).tag($0)
                             }
                 }
             }
+            .foregroundColor(.blue)
             .padding(8)
             Section {
                 Button(action: {
@@ -44,7 +48,7 @@ struct AddPillView: View {
                     }
                 }
                 .padding(10)
-                    .border(Color.blue, cornerRadius: 20)
+                    .overlay(strokedRoundedRectangle(cornerRadius: 20, color: Color.blue))
                     .font(.body)
                     .foregroundColor(.blue)
                 
@@ -63,30 +67,29 @@ struct AddPillView: View {
 }
 
 struct PillListView: View {
-    @ObjectBinding var manager: AddPillManager
+    @ObservedObject var manager: AddPillManager
     
     var body: some View {
-        VStack {
-            Text("Pills added")
-                .font(.title)
-            List(manager.list) { pill in
-                PillTypetRow(name: pill.name, amount: pill.amount ?? 0)
-            }
-            .deleteDisabled(false)
+        List(manager.list) { pill in
+            PillTypetRow(name: pill.name, amount: pill.amount ?? 0)
         }
         .padding(10)
-            .border(Color.blue, width: 1, cornerRadius: 16)
+        .overlay(strokedRoundedRectangle(cornerRadius: 16, lineWidth: 1, color: Color.blue))
     }
     
 }
+
 struct PillTypetRow: View {
     var name: String
     var amount: Int
     
     var body: some View {
         Group {
-            Text("Pill: \(name) - ").bold()
-            Text("Quantity: \(amount)").italic().color(Color.blue)
+            Text("Pill: \(name) - ")
+                .bold()
+            Text("Quantity: \(amount)")
+                .italic()
+                .foregroundColor(Color.blue)
         }
     }
 }
