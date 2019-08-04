@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4C73EAB922D7330400814F0E /* PillType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C73EAB822D7330400814F0E /* PillType.swift */; };
 		4C73EABB22D7410100814F0E /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C73EABA22D7410100814F0E /* StorageService.swift */; };
+		D9248C7A22F6E56800F3280B /* View+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9248C7922F6E56800F3280B /* View+Utils.swift */; };
 		D92D69D922EDE86A001A4CB8 /* HomeButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92D69D822EDE86A001A4CB8 /* HomeButtons.swift */; };
 		D92D69DB22EDEC28001A4CB8 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92D69DA22EDEC28001A4CB8 /* UserDefault.swift */; };
 		D94BED1622D7DC1B00B4D8B1 /* AddPillManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94BED1522D7DC1B00B4D8B1 /* AddPillManager.swift */; };
@@ -45,6 +46,7 @@
 /* Begin PBXFileReference section */
 		4C73EAB822D7330400814F0E /* PillType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillType.swift; sourceTree = "<group>"; };
 		4C73EABA22D7410100814F0E /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
+		D9248C7922F6E56800F3280B /* View+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Utils.swift"; sourceTree = "<group>"; };
 		D92D69D822EDE86A001A4CB8 /* HomeButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeButtons.swift; sourceTree = "<group>"; };
 		D92D69DA22EDEC28001A4CB8 /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
 		D94BED1522D7DC1B00B4D8B1 /* AddPillManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPillManager.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				D96BA72E22D68E2F00A15569 /* UserDefaults+Utils.swift */,
+				D9248C7922F6E56800F3280B /* View+Utils.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 				4C73EAB922D7330400814F0E /* PillType.swift in Sources */,
 				D971977E22D52F5000F8AE03 /* SceneDelegate.swift in Sources */,
 				D94BED1622D7DC1B00B4D8B1 /* AddPillManager.swift in Sources */,
+				D9248C7A22F6E56800F3280B /* View+Utils.swift in Sources */,
 				D971978022D52F5000F8AE03 /* HomeView.swift in Sources */,
 				D96BA72F22D68E2F00A15569 /* UserDefaults+Utils.swift in Sources */,
 				4C73EABB22D7410100814F0E /* StorageService.swift in Sources */,

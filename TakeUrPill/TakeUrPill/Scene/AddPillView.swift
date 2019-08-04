@@ -23,14 +23,18 @@ struct AddPillView: View {
                 TextField("Pill name", text: $pillName)
                     .padding(8)
                     .overlay(strokedRoundedRectangle(cornerRadius: 10, color: Color.gray))
+                
                 Picker(selection: $selectedpillAmount,
                        label: Text("Please choose an amount")
-                        .font(.subheadline)) {
+                        .font(.subheadline)
+                        .foregroundColor(.blue)
+                ) {
                             ForEach(0 ..< pillAmount.count) {
                                 Text(self.pillAmount[$0]).tag($0)
                             }
                 }
             }
+            .foregroundColor(.blue)
             .padding(8)
             Section {
                 Button(action: {
@@ -98,14 +102,3 @@ struct AddPillView_Previews : PreviewProvider {
     }
 }
 #endif
-
-extension View {
-    func strokedRoundedRectangle(
-            cornerRadius r: CGFloat,
-            lineWidth w: CGFloat = 1,
-            color c: Color = .primary
-        ) -> some View {
-
-        return RoundedRectangle(cornerRadius: r).stroke(lineWidth: w).foregroundColor(c)
-    }
-}
