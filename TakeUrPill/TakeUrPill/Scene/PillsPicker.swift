@@ -10,12 +10,15 @@ import Combine
 import SwiftUI
 
 struct PillsPickerView: View {
+    var manager: AddPillViewModel
+    @State private var selectedpill = 0
+    
     var body: some View {
-        Picker(selection: $selectedpillAmount,
+        Picker(selection: $selectedpill,
                label: Text("Please choose an amount")
                 .font(.subheadline)) {
-                    ForEach(0 ..< pillAmount.count) {
-                        Text(self.pillAmount[$0]).tag($0)
+                    ForEach(0 ..< manager.list.count) {
+                        Text(self.manager.list[$0].name)
                     }
         }
     }
@@ -24,7 +27,7 @@ struct PillsPickerView: View {
 #if DEBUG
 struct PillsPickerView_Previews : PreviewProvider {
     static var previews: some View {
-        PillsPickerView()
+        PillsPickerView(manager: AddPillViewModel())
     }
 }
 #endif

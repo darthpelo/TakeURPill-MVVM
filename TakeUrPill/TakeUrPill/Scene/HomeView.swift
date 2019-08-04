@@ -23,7 +23,7 @@ private struct ButtonsView: View {
         VStack(alignment: .center,
                spacing: 8,
                content: {
-                NavigationLink(destination: AddPillView(manager: AddPillManager())) {
+                NavigationLink(destination: AddPillView(manager: AddPillViewModel())) {
                     FirstButton()
                 }
                 Button(action: {
@@ -31,7 +31,7 @@ private struct ButtonsView: View {
                 }) {
                     SecondButton()
                 }
-                NavigationLink(destination: AddPillView(manager: AddPillManager())) {
+                NavigationLink(destination: AddPillView(manager: AddPillViewModel())) {
                     ThirdButton()
                 }
         })

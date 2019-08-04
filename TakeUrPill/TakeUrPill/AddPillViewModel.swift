@@ -1,5 +1,5 @@
 //
-//  AddPillManager.swift
+//  AddPillViewModel.swift
 //  TakeUrPill
 //
 //  Created by Alessio Roberto on 11/07/2019.
@@ -15,7 +15,7 @@ protocol DataPersistance {
     func loadPills()
 }
 
-final class AddPillManager: DataPersistance, ObservableObject {
+final class AddPillViewModel: DataPersistance, ObservableObject {
 
     var objectWillChange = PassthroughSubject<Void, Never>()
     var list: [PillType] = []

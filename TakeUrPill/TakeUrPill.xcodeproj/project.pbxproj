@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		4C73EAB922D7330400814F0E /* PillType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C73EAB822D7330400814F0E /* PillType.swift */; };
 		4C73EABB22D7410100814F0E /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C73EABA22D7410100814F0E /* StorageService.swift */; };
-		D9248C7A22F6E56800F3280B /* View+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9248C7922F6E56800F3280B /* View+Utils.swift */; };
 		D91EE67822EE060E00A5E178 /* PillsPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91EE67722EE060E00A5E178 /* PillsPicker.swift */; };
+		D9248C7A22F6E56800F3280B /* View+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9248C7922F6E56800F3280B /* View+Utils.swift */; };
+		D9248C7C22F70C3D00F3280B /* AddPillViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9248C7B22F70C3D00F3280B /* AddPillViewModel.swift */; };
 		D92D69D922EDE86A001A4CB8 /* HomeButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92D69D822EDE86A001A4CB8 /* HomeButtons.swift */; };
 		D92D69DB22EDEC28001A4CB8 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92D69DA22EDEC28001A4CB8 /* UserDefault.swift */; };
-		D94BED1622D7DC1B00B4D8B1 /* AddPillManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94BED1522D7DC1B00B4D8B1 /* AddPillManager.swift */; };
 		D96BA72C22D68A8400A15569 /* AddPillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96BA72B22D68A8400A15569 /* AddPillView.swift */; };
 		D96BA72F22D68E2F00A15569 /* UserDefaults+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96BA72E22D68E2F00A15569 /* UserDefaults+Utils.swift */; };
 		D971977C22D52F5000F8AE03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D971977B22D52F5000F8AE03 /* AppDelegate.swift */; };
@@ -47,11 +47,11 @@
 /* Begin PBXFileReference section */
 		4C73EAB822D7330400814F0E /* PillType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillType.swift; sourceTree = "<group>"; };
 		4C73EABA22D7410100814F0E /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
-		D9248C7922F6E56800F3280B /* View+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Utils.swift"; sourceTree = "<group>"; };
 		D91EE67722EE060E00A5E178 /* PillsPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PillsPicker.swift; path = "../../../../../../../../System/Volumes/Data/Users/alessioroberto/Documents/GitHub/TakeURPill-MVVM/TakeUrPill/TakeUrPill/Scene/PillsPicker.swift"; sourceTree = "<group>"; };
+		D9248C7922F6E56800F3280B /* View+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Utils.swift"; sourceTree = "<group>"; };
+		D9248C7B22F70C3D00F3280B /* AddPillViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPillViewModel.swift; sourceTree = "<group>"; };
 		D92D69D822EDE86A001A4CB8 /* HomeButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeButtons.swift; sourceTree = "<group>"; };
 		D92D69DA22EDEC28001A4CB8 /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
-		D94BED1522D7DC1B00B4D8B1 /* AddPillManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPillManager.swift; sourceTree = "<group>"; };
 		D96BA72B22D68A8400A15569 /* AddPillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPillView.swift; sourceTree = "<group>"; };
 		D96BA72E22D68E2F00A15569 /* UserDefaults+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Utils.swift"; sourceTree = "<group>"; };
 		D971977822D52F5000F8AE03 /* TakeUrPill.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TakeUrPill.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -154,8 +154,8 @@
 		D971977A22D52F5000F8AE03 /* TakeUrPill */ = {
 			isa = PBXGroup;
 			children = (
+				D9248C7B22F70C3D00F3280B /* AddPillViewModel.swift */,
 				D971978922D52F5200F8AE03 /* Info.plist */,
-				D94BED1522D7DC1B00B4D8B1 /* AddPillManager.swift */,
 				D971977B22D52F5000F8AE03 /* AppDelegate.swift */,
 				D971977D22D52F5000F8AE03 /* SceneDelegate.swift */,
 				4C73EABA22D7410100814F0E /* StorageService.swift */,
@@ -333,11 +333,11 @@
 				D91EE67822EE060E00A5E178 /* PillsPicker.swift in Sources */,
 				D971977C22D52F5000F8AE03 /* AppDelegate.swift in Sources */,
 				D92D69D922EDE86A001A4CB8 /* HomeButtons.swift in Sources */,
+				D9248C7C22F70C3D00F3280B /* AddPillViewModel.swift in Sources */,
 				D92D69DB22EDEC28001A4CB8 /* UserDefault.swift in Sources */,
 				D96BA72C22D68A8400A15569 /* AddPillView.swift in Sources */,
 				4C73EAB922D7330400814F0E /* PillType.swift in Sources */,
 				D971977E22D52F5000F8AE03 /* SceneDelegate.swift in Sources */,
-				D94BED1622D7DC1B00B4D8B1 /* AddPillManager.swift in Sources */,
 				D9248C7A22F6E56800F3280B /* View+Utils.swift in Sources */,
 				D971978022D52F5000F8AE03 /* HomeView.swift in Sources */,
 				D96BA72F22D68E2F00A15569 /* UserDefaults+Utils.swift in Sources */,

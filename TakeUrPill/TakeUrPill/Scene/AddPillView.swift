@@ -10,7 +10,7 @@ import Combine
 import SwiftUI
 
 struct AddPillView: View {
-    var manager: AddPillManager
+    var manager: AddPillViewModel
     var pillAmount = ["Don't know", "1", "2", "3", "4", "5"]
     
     @State private var pillName: String = ""
@@ -67,7 +67,7 @@ struct AddPillView: View {
 }
 
 struct PillListView: View {
-    @ObservedObject var manager: AddPillManager
+    @ObservedObject var manager: AddPillViewModel
     
     var body: some View {
         List(manager.list) { pill in
@@ -98,7 +98,7 @@ struct PillTypetRow: View {
 #if DEBUG
 struct AddPillView_Previews : PreviewProvider {
     static var previews: some View {
-        AddPillView(manager: AddPillManager())
+        AddPillView(manager: AddPillViewModel())
     }
 }
 #endif
