@@ -19,6 +19,8 @@ struct HomeView : View {
 }
 
 private struct ButtonsView: View {
+    @State var showPicker = false
+    
     var body: some View {
         VStack(alignment: .center,
                spacing: 8,
@@ -27,9 +29,15 @@ private struct ButtonsView: View {
                     FirstButton()
                 }
                 Button(action: {
-                    print("test")
+                    withAnimation {
+                        self.showPicker.toggle()
+                    }
                 }) {
                     SecondButton()
+                }
+                if showPicker {
+                    PillsPickerView(manager: AddPillViewModel())
+                        .transition(.move(edge: .bottom))
                 }
                 NavigationLink(destination: AddPillView(manager: AddPillViewModel())) {
                     ThirdButton()

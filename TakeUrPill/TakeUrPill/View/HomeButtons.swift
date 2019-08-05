@@ -25,7 +25,7 @@ struct FirstButton : View {
         })
             .frame(width: 180
                 , height: 64)
-            .strokedRoundedRectangle(cornerRadius: 12, color: Color.blue)
+//            .strokedRoundedRectangle(cornerRadius: 12, color: Color.blue)
     }
 }
 
